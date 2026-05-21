@@ -35,7 +35,7 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: 68,
+            height: 76,
           }}
         >
           {/* Logo */}
@@ -43,10 +43,10 @@ export default function Navbar() {
             href="/"
             style={{
               fontWeight: 700,
-              fontSize: 16,
+              fontSize: 17,
               color: "#1a1a1a",
               textDecoration: "none",
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.025em",
             }}
           >
             Neev Grover
@@ -75,7 +75,7 @@ export default function Navbar() {
                     color: "#6b6762",
                     textDecoration: "none",
                     fontWeight: 500,
-                    fontSize: 15,
+                    fontSize: 16,
                     transition: "color 0.15s",
                   }}
                   onMouseEnter={(e) =>
