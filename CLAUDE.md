@@ -1,7 +1,5 @@
 # CLAUDE.md
 
-> This file provides context for Claude Code when working on this codebase.
-
 **IMPORTANT:** When you make major changes to this codebase (adding/removing pages, components, or dependencies; changing architecture or conventions), you MUST update this file to reflect those changes before finishing the task.
 
 ## Project Overview
@@ -16,13 +14,6 @@ Personal website for Neev Grover — live at [neevgrover.com](https://neevgrover
 - **Icons:** react-icons (FontAwesome, Simple Icons)
 - **Contact form:** Formspree (`https://formspree.io/f/xnnvbrzq`)
 - **Deployment:** Vercel
-
-## Commands
-
-- `npm run dev` — Start dev server with Turbopack
-- `npm run build` — Production build
-- `npm run start` — Start production server
-- `npm run lint` — Run ESLint
 
 ## Project Structure
 
@@ -46,16 +37,6 @@ public/
   favicon.svg         — Site favicon
   profile.png         — Profile photo
 ```
-
-## Architecture & Patterns
-
-- **Styling approach:** Primarily inline React styles (not CSS modules or Tailwind utility classes). The dark theme uses `#080b12` as the primary background color.
-- **Design system:** Color palette — `#080b12` bg, `#0d1117` surface, `#1c2333` borders, `#e6edf3` text, `#7d8590` muted text, `#30363d` dim text, `#818cf8` accent (indigo).
-- **Max-width:** 680px centered for all content (single-column feel).
-- **Client vs Server components:** Components using interactivity (`useState`, event handlers) are marked `"use client"`. All section components are client components.
-- **No API routes** — contact form submits directly to Formspree.
-- **No database** — static site.
-- **No /blog page** — the navbar "Blog" link goes directly to Substack externally.
 
 ## Key URLs & Social Links
 

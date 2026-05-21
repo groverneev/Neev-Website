@@ -25,30 +25,30 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-          padding: "100px 1.5rem 88px",
-          background: "radial-gradient(ellipse at 50% 0%, rgba(212,98,58,0.07) 0%, transparent 65%), #faf9f7",
+          padding: "120px 1.5rem 100px",
+          background: "radial-gradient(ellipse at 50% -10%, rgba(212,98,58,0.11) 0%, transparent 65%), #faf9f7",
         }}
       >
         <Image
           src="/profile.png"
           alt="Neev Grover"
-          width={88}
-          height={88}
+          width={96}
+          height={96}
           style={{
             borderRadius: "50%",
-            boxShadow: "0 0 0 3px #e8e5df, 0 4px 16px rgba(0,0,0,0.10)",
+            boxShadow: "0 0 0 4px #e8e5df, 0 8px 24px rgba(0,0,0,0.10)",
             display: "block",
           }}
         />
 
         <h1
           style={{
-            fontSize: 60,
+            fontSize: 76,
             fontWeight: 800,
-            letterSpacing: "-0.035em",
+            letterSpacing: "-0.04em",
             color: "#1a1a1a",
-            margin: "20px 0 8px",
-            lineHeight: 1.1,
+            margin: "24px 0 10px",
+            lineHeight: 1.0,
           }}
         >
           Neev Grover
@@ -56,10 +56,11 @@ export default function Home() {
 
         <p
           style={{
-            fontSize: 17,
+            fontSize: 18,
             color: "#6b6762",
-            margin: "0 0 12px",
+            margin: "0 0 14px",
             fontWeight: 400,
+            letterSpacing: "-0.01em",
           }}
         >
           Sophomore at Harker School · building things I care about
@@ -69,16 +70,16 @@ export default function Home() {
           style={{
             fontSize: 17,
             color: "#6b6762",
-            maxWidth: 460,
-            margin: "0 auto 32px",
-            lineHeight: 1.7,
+            maxWidth: 500,
+            margin: "0 auto 36px",
+            lineHeight: 1.75,
           }}
         >
           I&apos;m passionate about computer science, chess, and the environment.
           I build projects that sit at the intersection of all three.
         </p>
 
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
           <a
             href="https://x.com/groverneev01"
             target="_blank"
@@ -127,8 +128,8 @@ export default function Home() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "5rem",
-          paddingBottom: "8rem",
+          gap: "6rem",
+          paddingBottom: "9rem",
         }}
       >
         <BlogSection />

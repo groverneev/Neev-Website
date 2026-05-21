@@ -41,8 +41,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" style={{ padding: "0 1.5rem", scrollMarginTop: "72px" }}>
-      <div style={{ maxWidth: 480, margin: "0 auto" }}>
+    <section id="contact" style={{ padding: "0 2rem", scrollMarginTop: "80px" }}>
+      <div style={{ maxWidth: 560, margin: "0 auto" }}>
         {/* Section label */}
         <p
           style={{
@@ -51,7 +51,7 @@ export default function ContactSection() {
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             color: "#9e9a96",
-            margin: "0 0 0.75rem",
+            margin: "0 0 1rem",
           }}
         >
           Contact

@@ -39,8 +39,8 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" style={{ padding: "0 1.5rem", scrollMarginTop: "72px" }}>
-      <div style={{ maxWidth: 680, margin: "0 auto" }}>
+    <section id="projects" style={{ padding: "0 2rem", scrollMarginTop: "80px" }}>
+      <div style={{ maxWidth: 800, margin: "0 auto" }}>
         {/* Section label */}
         <p
           style={{
@@ -49,7 +49,7 @@ export default function ProjectsSection() {
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             color: "#9e9a96",
-            margin: "0 0 1rem",
+            margin: "0 0 1.25rem",
           }}
         >
           Projects
@@ -61,7 +61,7 @@ export default function ProjectsSection() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "0.75rem",
+            gap: "1rem",
           }}
         >
           {projects.map((project) => (
@@ -75,21 +75,24 @@ export default function ProjectsSection() {
               <div
                 style={{
                   background: "#ffffff",
-                  borderRadius: 10,
-                  padding: "1.5rem",
+                  borderRadius: 14,
+                  padding: "1.75rem",
                   border: "1px solid #e8e5df",
                   cursor: "pointer",
-                  transition: "border-color 0.15s, box-shadow 0.15s",
+                  transition: "border-color 0.2s, box-shadow 0.2s, transform 0.2s",
                   height: "100%",
                   boxSizing: "border-box",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.05)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "#d4623a";
-                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(212,98,58,0.08)";
+                  e.currentTarget.style.boxShadow = "0 4px 24px rgba(212,98,58,0.12), 0 1px 3px rgba(0,0,0,0.04)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "#e8e5df";
-                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.05)";
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 {/* Tag + icon */}

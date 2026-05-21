@@ -25,9 +25,9 @@ export default function Navbar() {
     >
       <div
         style={{
-          maxWidth: 680,
+          maxWidth: 860,
           margin: "0 auto",
-          padding: "0 1.5rem",
+          padding: "0 2rem",
         }}
       >
         <div
@@ -35,18 +35,18 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: 56,
+            height: 68,
           }}
         >
           {/* Logo */}
           <a
             href="/"
             style={{
-              fontWeight: 600,
-              fontSize: 15,
+              fontWeight: 700,
+              fontSize: 16,
               color: "#1a1a1a",
               textDecoration: "none",
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}
           >
             Neev Grover
@@ -75,7 +75,7 @@ export default function Navbar() {
                     color: "#6b6762",
                     textDecoration: "none",
                     fontWeight: 500,
-                    fontSize: 14,
+                    fontSize: 15,
                     transition: "color 0.15s",
                   }}
                   onMouseEnter={(e) =>

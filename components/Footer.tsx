@@ -54,9 +54,9 @@ export default function Footer() {
     >
       <div
         style={{
-          maxWidth: 680,
+          maxWidth: 860,
           margin: "0 auto",
-          padding: "1.25rem 1.5rem",
+          padding: "1.5rem 2rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
