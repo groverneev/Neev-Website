@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --background: #080b12;
-  --foreground: #e6edf3;
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+  --surface: #ffffff;
+  --border: #e8e5df;
+  --text-muted: #6b6762;
+  --text-dim: #9e9a96;
+  --accent: #d4623a;
+  --accent-hover: #c05530;
 }
 
 body {
@@ -11,4 +17,5 @@ body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
 }

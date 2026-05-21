@@ -13,10 +13,10 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        background: "rgba(8, 11, 18, 0.88)",
+        background: "rgba(250, 249, 247, 0.90)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: "1px solid rgba(0,0,0,0.07)",
         position: "sticky",
         top: 0,
         zIndex: 50,
@@ -35,7 +35,7 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: 52,
+            height: 56,
           }}
         >
           {/* Logo */}
@@ -43,8 +43,8 @@ export default function Navbar() {
             href="/"
             style={{
               fontWeight: 600,
-              fontSize: 14,
-              color: "#e6edf3",
+              fontSize: 15,
+              color: "#1a1a1a",
               textDecoration: "none",
               letterSpacing: "-0.01em",
             }}
@@ -72,17 +72,17 @@ export default function Navbar() {
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                   style={{
-                    color: "#7d8590",
+                    color: "#6b6762",
                     textDecoration: "none",
                     fontWeight: 500,
-                    fontSize: 13,
+                    fontSize: 14,
                     transition: "color 0.15s",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "#e6edf3")
+                    (e.currentTarget.style.color = "#1a1a1a")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "#7d8590")
+                    (e.currentTarget.style.color = "#6b6762")
                   }
                 >
                   {link.label}
@@ -102,7 +102,7 @@ export default function Navbar() {
               borderRadius: 6,
               background: "none",
               border: "none",
-              color: "#7d8590",
+              color: "#6b6762",
               cursor: "pointer",
               alignItems: "center",
               justifyContent: "center",
@@ -125,7 +125,7 @@ export default function Navbar() {
           <div
             className="navbar-mobile-menu"
             style={{
-              borderTop: "1px solid rgba(255,255,255,0.06)",
+              borderTop: "1px solid rgba(0,0,0,0.07)",
               paddingTop: 12,
               paddingBottom: 12,
               display: "none",
@@ -141,19 +141,19 @@ export default function Navbar() {
                     : {})}
                   onClick={() => setMobileMenuOpen(false)}
                   style={{
-                    color: "#7d8590",
+                    color: "#6b6762",
                     textDecoration: "none",
                     fontWeight: 500,
-                    fontSize: 14,
+                    fontSize: 15,
                     padding: "8px 6px",
                     borderRadius: 6,
                     transition: "color 0.15s",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "#e6edf3")
+                    (e.currentTarget.style.color = "#1a1a1a")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "#7d8590")
+                    (e.currentTarget.style.color = "#6b6762")
                   }
                 >
                   {link.label}

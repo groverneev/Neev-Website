@@ -46,11 +46,11 @@ export default function ContactSection() {
         {/* Section label */}
         <p
           style={{
-            fontSize: 11,
+            fontSize: 13,
             fontWeight: 600,
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            color: "#30363d",
+            letterSpacing: "0.08em",
+            color: "#9e9a96",
             margin: "0 0 0.75rem",
           }}
         >
@@ -59,10 +59,10 @@ export default function ContactSection() {
 
         <p
           style={{
-            fontSize: 14,
-            color: "#7d8590",
+            fontSize: 17,
+            color: "#6b6762",
             margin: "0 0 2rem",
-            lineHeight: 1.5,
+            lineHeight: 1.6,
           }}
         >
           Have a question or want to chat? Drop me a line.
@@ -71,11 +71,11 @@ export default function ContactSection() {
         {status === "success" ? (
           <div
             style={{
-              border: "1px solid #1c2333",
-              borderRadius: 8,
-              padding: "1.5rem",
+              border: "1px solid #e8e5df",
+              borderRadius: 10,
+              padding: "2rem 1.5rem",
               textAlign: "center",
-              background: "#0d1117",
+              background: "#ffffff",
             }}
           >
             <svg
@@ -84,7 +84,7 @@ export default function ContactSection() {
               fill="none"
               stroke="#22c55e"
               viewBox="0 0 24 24"
-              style={{ margin: "0 auto 10px", display: "block" }}
+              style={{ margin: "0 auto 12px", display: "block" }}
             >
               <path
                 strokeLinecap="round"
@@ -93,10 +93,10 @@ export default function ContactSection() {
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <p style={{ fontWeight: 600, marginBottom: 4, color: "#e6edf3", fontSize: 14 }}>
+            <p style={{ fontWeight: 600, marginBottom: 4, color: "#1a1a1a", fontSize: 16 }}>
               Message sent!
             </p>
-            <p style={{ fontSize: 13, color: "#7d8590", margin: "0 0 12px" }}>
+            <p style={{ fontSize: 15, color: "#6b6762", margin: "0 0 14px" }}>
               I&apos;ll get back to you soon.
             </p>
             <button
@@ -104,9 +104,9 @@ export default function ContactSection() {
               style={{
                 background: "none",
                 border: "none",
-                color: "#818cf8",
+                color: "#d4623a",
                 textDecoration: "underline",
-                fontSize: 13,
+                fontSize: 14,
                 cursor: "pointer",
               }}
             >
@@ -160,12 +160,12 @@ export default function ContactSection() {
             {status === "error" && (
               <div
                 style={{
-                  background: "#2a1215",
-                  border: "1px solid #5c1d1d",
-                  color: "#f87171",
+                  background: "#fff5f2",
+                  border: "1px solid #f5c4b5",
+                  color: "#c05530",
                   padding: "10px 14px",
                   borderRadius: 6,
-                  fontSize: 13,
+                  fontSize: 14,
                 }}
               >
                 Something went wrong. Please try again or email me directly.
@@ -177,16 +177,16 @@ export default function ContactSection() {
               disabled={status === "loading"}
               style={{
                 width: "100%",
-                background: "#818cf8",
+                background: "#d4623a",
                 color: "#fff",
                 fontWeight: 600,
-                fontSize: 14,
-                padding: "12px 16px",
-                borderRadius: 6,
+                fontSize: 15,
+                padding: "13px 16px",
+                borderRadius: 8,
                 border: "none",
                 cursor: status === "loading" ? "not-allowed" : "pointer",
-                opacity: status === "loading" ? 0.7 : 1,
-                transition: "opacity 0.15s",
+                opacity: status === "loading" ? 0.75 : 1,
+                transition: "opacity 0.15s, background 0.15s",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -221,20 +221,20 @@ export default function ContactSection() {
 
 const labelStyle: React.CSSProperties = {
   display: "block",
-  fontSize: 14,
+  fontSize: 15,
   fontWeight: 500,
-  color: "#7d8590",
-  marginBottom: 4,
+  color: "#1a1a1a",
+  marginBottom: 5,
 };
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
-  padding: "11px 14px",
-  borderRadius: 6,
-  border: "1px solid #1c2333",
-  background: "#0d1117",
-  color: "#e6edf3",
-  fontSize: 14,
+  padding: "12px 14px",
+  borderRadius: 8,
+  border: "1px solid #e8e5df",
+  background: "#ffffff",
+  color: "#1a1a1a",
+  fontSize: 15,
   outline: "none",
   boxSizing: "border-box",
 };

@@ -9,11 +9,11 @@ export default function BlogSection() {
         {/* Section label */}
         <p
           style={{
-            fontSize: 11,
+            fontSize: 13,
             fontWeight: 600,
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            color: "#30363d",
+            letterSpacing: "0.08em",
+            color: "#9e9a96",
             margin: "0 0 1rem",
           }}
         >
@@ -33,29 +33,31 @@ export default function BlogSection() {
               alignItems: "center",
               justifyContent: "space-between",
               gap: "1rem",
-              border: "1px solid #1c2333",
-              borderRadius: 8,
+              border: "1px solid #e8e5df",
+              borderRadius: 10,
               padding: "1.25rem 1.5rem",
-              background: "#0d1117",
+              background: "#ffffff",
               cursor: "pointer",
-              transition: "border-color 0.15s",
+              transition: "border-color 0.15s, box-shadow 0.15s",
             }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.borderColor = "#30363d")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.borderColor = "#1c2333")
-            }
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#d4623a";
+              e.currentTarget.style.boxShadow = "0 2px 12px rgba(212,98,58,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "#e8e5df";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             {/* Left */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", minWidth: 0 }}>
-              <SiSubstack size={16} color="#30363d" style={{ flexShrink: 0 }} />
+              <SiSubstack size={17} color="#9e9a96" style={{ flexShrink: 0 }} />
               <div style={{ minWidth: 0 }}>
                 <span
                   style={{
-                    fontSize: 16,
+                    fontSize: 17,
                     fontWeight: 600,
-                    color: "#e6edf3",
+                    color: "#1a1a1a",
                     display: "block",
                   }}
                 >
@@ -63,8 +65,8 @@ export default function BlogSection() {
                 </span>
                 <span
                   style={{
-                    fontSize: 14,
-                    color: "#7d8590",
+                    fontSize: 15,
+                    color: "#6b6762",
                     display: "block",
                     whiteSpace: "nowrap",
                     overflow: "hidden",
@@ -80,12 +82,12 @@ export default function BlogSection() {
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
               <span
                 style={{
-                  fontSize: 11,
+                  fontSize: 12,
                   fontWeight: 500,
-                  color: "#30363d",
-                  border: "1px solid #1c2333",
-                  borderRadius: 4,
-                  padding: "0.15rem 0.5rem",
+                  color: "#9e9a96",
+                  border: "1px solid #e8e5df",
+                  borderRadius: 5,
+                  padding: "0.2rem 0.6rem",
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                 }}
@@ -97,7 +99,7 @@ export default function BlogSection() {
                 height="14"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#30363d"
+                stroke="#9e9a96"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"

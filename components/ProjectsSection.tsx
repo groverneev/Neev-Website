@@ -6,7 +6,7 @@ const projects = [
   {
     href: "https://earthdayartcontest.vercel.app",
     tag: "Art + Environment",
-    icon: <FaLeaf size={15} color="#30363d" />,
+    icon: <FaLeaf size={15} color="#9e9a96" />,
     title: "Earth Day Art Contest",
     description:
       "An art competition for ages 5–17 celebrating Earth Day 2026, with prizes across two age groups.",
@@ -14,7 +14,7 @@ const projects = [
   {
     href: "https://collegestatistics.org",
     tag: "Data Analytics",
-    icon: <FaChartBar size={15} color="#30363d" />,
+    icon: <FaChartBar size={15} color="#9e9a96" />,
     title: "College Statistics",
     description:
       "A data visualization dashboard comparing universities using Common Data Set metrics over time.",
@@ -22,7 +22,7 @@ const projects = [
   {
     href: "https://dunebroom.com",
     tag: "Robotics + AI",
-    icon: <FaBroom size={15} color="#30363d" />,
+    icon: <FaBroom size={15} color="#9e9a96" />,
     title: "DuneBroom",
     description:
       "An autonomous beach-cleaning robot using edge AI and computer vision to remove litter.",
@@ -30,7 +30,7 @@ const projects = [
   {
     href: "https://buddybridge.us",
     tag: "Community",
-    icon: <FaHandshake size={15} color="#30363d" />,
+    icon: <FaHandshake size={15} color="#9e9a96" />,
     title: "BuddyBridge",
     description:
       "A platform connecting elderly adults with teen volunteers for free, everyday task assistance.",
@@ -44,11 +44,11 @@ export default function ProjectsSection() {
         {/* Section label */}
         <p
           style={{
-            fontSize: 11,
+            fontSize: 13,
             fontWeight: 600,
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            color: "#30363d",
+            letterSpacing: "0.08em",
+            color: "#9e9a96",
             margin: "0 0 1rem",
           }}
         >
@@ -74,21 +74,23 @@ export default function ProjectsSection() {
             >
               <div
                 style={{
-                  background: "#0d1117",
-                  borderRadius: 8,
+                  background: "#ffffff",
+                  borderRadius: 10,
                   padding: "1.5rem",
-                  border: "1px solid #1c2333",
+                  border: "1px solid #e8e5df",
                   cursor: "pointer",
-                  transition: "border-color 0.15s",
+                  transition: "border-color 0.15s, box-shadow 0.15s",
                   height: "100%",
                   boxSizing: "border-box",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.borderColor = "#30363d")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.borderColor = "#1c2333")
-                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "#d4623a";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(212,98,58,0.08)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "#e8e5df";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
                 {/* Tag + icon */}
                 <div
@@ -101,12 +103,12 @@ export default function ProjectsSection() {
                 >
                   <span
                     style={{
-                      fontSize: 11,
+                      fontSize: 12,
                       fontWeight: 500,
-                      color: "#30363d",
-                      border: "1px solid #1c2333",
-                      borderRadius: 4,
-                      padding: "0.15rem 0.5rem",
+                      color: "#9e9a96",
+                      border: "1px solid #e8e5df",
+                      borderRadius: 5,
+                      padding: "0.2rem 0.55rem",
                       letterSpacing: "0.03em",
                     }}
                   >
@@ -118,11 +120,11 @@ export default function ProjectsSection() {
                 {/* Title */}
                 <h3
                   style={{
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: 600,
                     margin: "0 0 0.5rem",
                     letterSpacing: "-0.01em",
-                    color: "#e6edf3",
+                    color: "#1a1a1a",
                   }}
                 >
                   {project.title}
@@ -131,10 +133,10 @@ export default function ProjectsSection() {
                 {/* Description */}
                 <p
                   style={{
-                    fontSize: 14,
-                    lineHeight: 1.6,
+                    fontSize: 15,
+                    lineHeight: 1.65,
                     margin: "0 0 1rem",
-                    color: "#7d8590",
+                    color: "#6b6762",
                   }}
                 >
                   {project.description}
@@ -143,9 +145,9 @@ export default function ProjectsSection() {
                 {/* CTA */}
                 <span
                   style={{
-                    fontSize: 13,
+                    fontSize: 14,
                     fontWeight: 500,
-                    color: "#7d8590",
+                    color: "#d4623a",
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.3rem",
@@ -154,8 +156,8 @@ export default function ProjectsSection() {
                 >
                   Visit
                   <svg
-                    width="12"
-                    height="12"
+                    width="13"
+                    height="13"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

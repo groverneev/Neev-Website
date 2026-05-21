@@ -47,8 +47,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: "1px solid #1c2333",
-        background: "#080b12",
+        borderTop: "1px solid #e8e5df",
+        background: "#f0ede8",
         marginTop: "4rem",
       }}
     >
@@ -65,7 +65,7 @@ export default function Footer() {
         }}
       >
         {/* Left: copyright */}
-        <p style={{ fontSize: 13, color: "#30363d", margin: 0 }}>
+        <p style={{ fontSize: 13, color: "#9e9a96", margin: 0 }}>
           &copy; {new Date().getFullYear()} Neev Grover
         </p>
 
@@ -79,12 +79,12 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label={link.label}
               style={{
-                color: "#30363d",
+                color: "#9e9a96",
                 transition: "color 0.15s",
                 display: "flex",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#7d8590")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#30363d")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#1a1a1a")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#9e9a96")}
             >
               {link.icon}
             </a>
