@@ -15,7 +15,7 @@ const projects = [
     icon: <FaBroom size={15} color="#9e9a96" />,
     title: "DuneBroom",
     description:
-      "An autonomous beach-cleaning robot using edge AI and computer vision to remove litter.",
+      "An autonomous beach-cleaning robot using edge AI and computer vision to detect litter.",
   },
 ];
 
