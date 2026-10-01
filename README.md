@@ -11,15 +11,6 @@ Source code for **[neevgrover.com](https://neevgrover.com)** — a personal webs
 - **rss-parser** for fetching Substack blog posts
 - Deployed on **Vercel**
 
-## Getting Started
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
 ## Project Structure
 
 ```
@@ -43,15 +34,6 @@ public/
   favicon.svg           Site favicon
   profile.png           Profile photo
 ```
-
-## Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start dev server (Turbopack) |
-| `npm run build` | Production build |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
 
 ## About
 
