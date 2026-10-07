@@ -1,5 +1,6 @@
 ---
-import { FORMSPREE_URL } from "../data";
+import { Icon } from "astro-icon/components";
+import { FORMSPREE_URL, social } from "../data";
 
 const label = "mb-1.5 block text-[15px] font-medium";
 const input =
@@ -56,28 +57,60 @@ const panel = "[grid-area:1/1] transition-[opacity,visibility] duration-300";
         aria-live="polite"
         class:list={[
           panel,
-          "invisible flex flex-col items-center justify-center rounded-[14px] border border-border bg-surface px-8 py-10 text-center opacity-0 shadow-card group-data-sent:visible group-data-sent:opacity-100",
+          "invisible flex flex-col overflow-hidden rounded-[14px] border border-border bg-surface opacity-0 shadow-card group-data-sent:visible group-data-sent:opacity-100",
         ]}
       >
-        <div class="badge mb-6 flex size-16 items-center justify-center rounded-full bg-accent/10 ring-8 ring-accent/5">
-          <svg class="size-7 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path class="check" pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"></path>
-          </svg>
+        <div class="flex flex-1 flex-col items-center justify-center px-8 pt-10 pb-8 text-center">
+          <div class="badge mb-6 flex size-16 items-center justify-center rounded-full bg-accent/10 ring-8 ring-accent/5">
+            <svg class="size-7 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path class="check" pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"></path>
+            </svg>
+          </div>
+          <h3 id="contact-success-title" tabindex="-1" class="rise mb-2 text-[26px] font-bold tracking-[-0.03em] outline-none">
+            Thanks!
+          </h3>
+          <p class="rise mb-7 max-w-[360px] text-[15px] leading-[1.65] text-muted">
+            Your message landed in my inbox. I'll reply to{" "}
+            <span id="contact-success-email" class="font-medium break-words text-fg"></span> soon.
+          </p>
+
+          <figure class="rise w-full max-w-[400px] rounded-[10px] border border-border bg-bg px-4 py-3.5 text-left">
+            <figcaption class="mb-1.5 text-[11px] font-semibold tracking-[0.08em] text-dim uppercase">
+              You wrote
+            </figcaption>
+            <blockquote id="contact-success-message" class="line-clamp-3 text-[14px] leading-[1.6] whitespace-pre-line text-muted"></blockquote>
+          </figure>
         </div>
-        <h3 id="contact-success-title" tabindex="-1" class="mb-2 text-2xl font-bold tracking-[-0.03em] outline-none">
-          Thanks!
-        </h3>
-        <p class="mb-8 max-w-[340px] text-[15px] leading-[1.65] text-muted">
-          Your message is on its way. I'll get back to you at{" "}
-          <span id="contact-success-email" class="font-medium text-fg"></span> soon.
-        </p>
-        <button
-          id="contact-reset"
-          type="button"
-          class="cursor-pointer rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent hover:text-accent"
-        >
-          Send another message
-        </button>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-footer/50 px-6 py-4">
+          <button
+            id="contact-reset"
+            type="button"
+            class="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent"
+          >
+            <svg class="size-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5"></path>
+              <path d="m12 19-7-7 7-7"></path>
+            </svg>
+            Send another
+          </button>
+          <div class="flex items-center gap-3.5">
+            <span class="text-[13px] text-dim">Meanwhile, find me on</span>
+            {
+              social.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  class="flex text-dim transition-colors hover:text-fg"
+                >
+                  <Icon name={link.icon} size={15} />
+                </a>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +130,20 @@ const panel = "[grid-area:1/1] transition-[opacity,visibility] duration-300";
     animation: draw 0.4s 0.25s ease-out forwards;
   }
 
+  /* Text and message preview fade up in sequence after the badge */
+  [data-sent] .rise {
+    animation: rise 0.45s ease-out both;
+  }
+  [data-sent] h3.rise {
+    animation-delay: 0.15s;
+  }
+  [data-sent] p.rise {
+    animation-delay: 0.22s;
+  }
+  [data-sent] figure.rise {
+    animation-delay: 0.32s;
+  }
+
   @keyframes pop {
     from {
       transform: scale(0.6);
@@ -110,8 +157,16 @@ const panel = "[grid-area:1/1] transition-[opacity,visibility] duration-300";
     }
   }
 
+  @keyframes rise {
+    from {
+      transform: translateY(8px);
+      opacity: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    [data-sent] .badge {
+    [data-sent] .badge,
+    [data-sent] .rise {
       animation: none;
     }
     .check,
@@ -130,6 +185,7 @@ const panel = "[grid-area:1/1] transition-[opacity,visibility] duration-300";
   const submit = form.querySelector("button[type=submit]") as HTMLButtonElement;
   const title = document.getElementById("contact-success-title") as HTMLElement;
   const email = document.getElementById("contact-success-email") as HTMLElement;
+  const message = document.getElementById("contact-success-message") as HTMLElement;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -148,6 +204,7 @@ const panel = "[grid-area:1/1] transition-[opacity,visibility] duration-300";
       const firstName = String(data.get("name")).trim().split(/\s+/)[0];
       title.textContent = firstName ? `Thanks, ${firstName}!` : "Thanks!";
       email.textContent = String(data.get("email"));
+      message.textContent = String(data.get("message")).trim();
       form.reset();
       wrapper.dataset.sent = "";
       title.focus();
