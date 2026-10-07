@@ -1,0 +1,4 @@
+[install]
+# Supply-chain safety: refuse package versions published less than 3 days ago.
+# Most hijacked releases are caught and pulled within that window.
+minimumReleaseAge = 259200 # seconds

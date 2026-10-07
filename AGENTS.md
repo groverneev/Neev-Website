@@ -7,7 +7,7 @@ Personal website for Neev Grover — live at [neevgrover.com](https://neevgrover
 ## Tech Stack
 
 - **Framework:** Astro (static output, no client framework). Pages in `src/pages`, components in `src/components`, shared layout in `src/layouts/Base.astro`
-- **Package manager / scripts:** Bun (`bun install`, `bun run dev`, `bun run build`, `bun run check`)
+- **Package manager / scripts:** Bun (`bun install`, `bun run dev`, `bun run build`, `bun run check`). `bunfig.toml` sets `minimumReleaseAge` to 3 days, so Bun won't install package versions newer than that
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4 via `@tailwindcss/vite`. Design tokens (colors, shadows, font) and the `section-label` / `card` utilities live in `src/styles/global.css`
 - **Font:** Inter Variable, self-hosted via `@fontsource-variable/inter`
