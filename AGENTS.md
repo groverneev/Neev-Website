@@ -12,29 +12,6 @@ Personal website for Neev Grover — live at [neevgrover.com](https://neevgrover
 - **Icons:** react-icons (FontAwesome, Simple Icons)
 - **Contact form:** Formspree (`https://formspree.io/f/xnnvbrzq`)
 
-## Project Structure
-
-```
-app/
-  layout.tsx          — Root layout (Navbar + Footer wrapper)
-  page.tsx            — Homepage (Hero, Writing, Projects, Contact sections)
-  globals.css         — Global styles, CSS variables, Inter font import
-  not-found.tsx       — Custom 404 page
-  privacy-policy/page.tsx — Privacy policy page
-
-components/
-  Navbar.tsx          — Sticky glassy dark navbar with mobile hamburger
-  Footer.tsx          — Single-row footer (copyright, privacy link, social icons)
-  BlogSection.tsx     — Slim "Writing" card linking to Substack newsletter
-  ProjectsSection.tsx — 2-column projects grid (College Statistics, DuneBroom)
-  ContactSection.tsx  — Contact form using Formspree
-  PrivacyPolicy.tsx   — Privacy policy content
-
-public/
-  favicon.svg         — Site favicon
-  profile.png         — Profile photo
-```
-
 ## URLs & Social Links
 
 - GitHub: https://github.com/groverneev
