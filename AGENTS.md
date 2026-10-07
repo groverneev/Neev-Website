@@ -29,3 +29,6 @@ Personal website for Neev Grover — live at [neevgrover.com](https://neevgrover
 
 ## When Making Major Changes
 Make sure this file reflects the current state of this codebase
+
+## Commits
+Do not add yourself as a co-author on commits (no `Co-Authored-By` trailers or similar agent attribution lines in commit messages or PR descriptions).
