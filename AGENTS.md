@@ -2,15 +2,21 @@
 
 ## Project Overview
 
-Personal website for Neev Grover — live at [neevgrover.com](https://neevgrover.com). Built with Next.js (App Router) and deployed on Vercel.
+Personal website for Neev Grover — live at [neevgrover.com](https://neevgrover.com). Built with Astro as a fully static site and deployed on Vercel.
 
 ## Tech Stack
 
-- **Framework:** Next.js 16 (App Router, React 19)
+- **Framework:** Astro (static output, no client framework). Pages in `src/pages`, components in `src/components`, shared layout in `src/layouts/Base.astro`
+- **Package manager / scripts:** Bun (`bun install`, `bun run dev`, `bun run build`, `bun run check`)
 - **Language:** TypeScript
-- **Styling:** Inline styles + Tailwind CSS v4 (via PostCSS plugin), Inter font from Google Fonts
-- **Icons:** react-icons (FontAwesome, Simple Icons)
-- **Contact form:** Formspree (`https://formspree.io/f/xnnvbrzq`)
+- **Styling:** Tailwind CSS v4 via `@tailwindcss/vite`. Design tokens (colors, shadows, font) and the `section-label` / `card` utilities live in `src/styles/global.css`
+- **Font:** Inter Variable, self-hosted via `@fontsource-variable/inter`
+- **Icons:** `astro-icon` with Iconify sets (`fa6-brands`, `fa6-solid`, `simple-icons`), inlined as SVG at build time
+- **Images:** `astro:assets` `<Image>` (profile photo lives in `src/assets` and is optimized to WebP)
+- **Interactivity:** small inline `<script>` tags only (mobile menu, contact form). No React
+- **Contact form:** Formspree (`https://formspree.io/f/xnnvbrzq`). Plain HTML form that also works without JS
+- **Lint/format:** Biome (`biome.json`) plus `astro check` for types
+- **Site content:** social links, projects and nav links are in `src/data.ts`
 
 ## URLs & Social Links
 

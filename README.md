@@ -4,12 +4,21 @@ Source code for **[neevgrover.com](https://neevgrover.com)** — my personal web
 
 ## Tech Stack
 
-- **Next.js 16** (App Router, Turbopack)
-- **React 19** with TypeScript
-- **Tailwind CSS v4** (via PostCSS)
-- **react-icons** for social/project icons
-- **rss-parser** for fetching Substack blog posts
+- **Astro** (fully static, zero client-side framework)
+- **TypeScript**
+- **Tailwind CSS v4**
+- **astro-icon** (Iconify) for icons, self-hosted **Inter** font
+- **Bun** for installs and scripts, **Biome** for lint/format
 - Deployed on **Vercel**
+
+## Development
+
+```sh
+bun install
+bun run dev      # local dev server at http://localhost:4321
+bun run build    # type-check and build to dist/
+bun run check    # lint + type-check
+```
 
 ## About
 

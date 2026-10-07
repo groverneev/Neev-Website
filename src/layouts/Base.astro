@@ -1,0 +1,40 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  class?: string;
+}
+
+const {
+  title = "Neev Grover",
+  description = "Junior at Harker School, building at the intersection of code, chess, and the environment.",
+  class: className,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen">
+    <Navbar />
+    <main class={className}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

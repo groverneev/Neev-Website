@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import profile from "../assets/profile.png";
+import BlogSection from "../components/BlogSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import { social } from "../data";
+import Base from "../layouts/Base.astro";
+---
+
+<Base>
+  <section id="hero" class="flex flex-col items-center px-6 pt-[120px] pb-[100px] text-center">
+    <Image
+      src={profile}
+      alt="Neev Grover"
+      width={96}
+      height={96}
+      densities={[1, 2]}
+      loading="eager"
+      fetchpriority="high"
+      class="size-24 rounded-full shadow-[0_0_0_4px_#e8e5df,0_8px_24px_rgba(0,0,0,0.10)]"
+    />
+
+    <h1 class="mt-6 mb-2.5 text-[clamp(3rem,12vw,4.75rem)] leading-none font-extrabold tracking-[-0.04em]">
+      Neev Grover
+    </h1>
+    <p class="mb-3.5 text-lg tracking-[-0.01em] text-muted">
+      Junior at Harker School · building things I care about
+    </p>
+    <p class="mx-auto mb-9 max-w-[500px] text-[17px] leading-[1.75] text-muted">
+      I'm passionate about computer science, chess, and the environment. I build projects that sit
+      at the intersection of all three.
+    </p>
+
+    <div class="flex items-center gap-[18px]">
+      {
+        social.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+            class="flex text-dim transition-colors hover:text-fg"
+          >
+            <Icon name={link.icon} size={19} />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <div class="flex flex-col gap-24 pb-36">
+    <BlogSection />
+    <ProjectsSection />
+
+    <section id="github-activity" class="mx-auto w-full max-w-[860px] px-6">
+      <h2 class="mb-6 text-[28px] font-bold tracking-[-0.03em]">GitHub Activity</h2>
+      <img
+        src="https://ghchart.rshah.org/groverneev"
+        alt="Neev Grover's GitHub contribution chart"
+        loading="lazy"
+        class="w-full rounded-lg"
+      />
+    </section>
+
+    <ContactSection />
+  </div>
+</Base>

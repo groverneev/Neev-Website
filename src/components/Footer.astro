@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+import { social } from "../data";
+---
+
+<footer class="mt-16 border-t border-border bg-footer">
+  <div class="mx-auto flex max-w-[860px] flex-wrap items-center justify-between gap-3 px-8 py-6">
+    <p class="text-[13px] text-dim">&copy; {new Date().getFullYear()} Neev Grover</p>
+    <div class="flex items-center gap-3">
+      {
+        social.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+            class="flex text-dim transition-colors hover:text-fg"
+          >
+            <Icon name={link.icon} size={16} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

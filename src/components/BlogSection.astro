@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="writing" class="scroll-mt-20 px-8">
+  <div class="mx-auto max-w-[800px]">
+    <p class="section-label mb-5">Writing</p>
+
+    <a
+      href="https://techunpacked.substack.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card flex items-center justify-between gap-4 px-7 py-6 hover:-translate-y-px"
+    >
+      <div class="flex min-w-0 items-center gap-3">
+        <Icon name="simple-icons:substack" size={17} class="shrink-0 text-dim" />
+        <div class="min-w-0">
+          <span class="block text-[17px] font-semibold">Tech Unpacked</span>
+          <span class="block truncate text-[15px] text-muted">
+            Deep dives on AI, robotics, and software.
+          </span>
+        </div>
+      </div>
+
+      <svg class="size-3.5 shrink-0 text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 17L17 7"></path>
+        <path d="M7 7h10v10"></path>
+      </svg>
+    </a>
+  </div>
+</section>
