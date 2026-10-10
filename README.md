@@ -11,15 +11,6 @@ Source code for **[neevgrover.com](https://neevgrover.com)** — my personal web
 - **Bun** for installs and scripts, **Biome** for lint/format
 - Deployed on **Vercel**
 
-## Development
-
-```sh
-bun install
-bun run dev      # local dev server at http://localhost:4321
-bun run build    # type-check and build to dist/
-bun run check    # lint + type-check
-```
-
 ## About
 
 - Chess — USCF ~1800, Chess.com ~2100
