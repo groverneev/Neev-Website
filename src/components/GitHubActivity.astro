@@ -1,0 +1,151 @@
+---
+// Contribution data is fetched at build time, so the chart reflects the last deploy.
+const USERNAME = "groverneev";
+const PROFILE_URL = `https://github.com/${USERNAME}`;
+
+interface Day {
+  date: string;
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4;
+}
+
+interface ContributionsResponse {
+  total: { lastYear: number };
+  contributions: Day[];
+}
+
+let data: ContributionsResponse | null = null;
+try {
+  const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`);
+  if (res.ok) data = await res.json();
+} catch {
+  data = null;
+}
+
+const BLOCK = 11;
+const GAP = 3;
+const CELL = BLOCK + GAP;
+const LEFT = 30;
+const TOP = 20;
+const LEVEL_COLORS = ["#ece9e3", "#d3e2c4", "#a3c48c", "#6a9a55", "#3f6b33"];
+
+const parseDate = (date: string) => new Date(`${date}T00:00:00Z`);
+const monthName = (d: Date) => d.toLocaleString("en-US", { month: "short", timeZone: "UTC" });
+const fullDate = (d: Date) =>
+  d.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+
+// Group days into week columns (Sunday first), padding the first week so rows line up by weekday.
+const weeks: (Day | null)[][] = [];
+if (data) {
+  let week: (Day | null)[] = Array(parseDate(data.contributions[0].date).getUTCDay()).fill(null);
+  for (const day of data.contributions) {
+    week.push(day);
+    if (week.length === 7) {
+      weeks.push(week);
+      week = [];
+    }
+  }
+  if (week.length) weeks.push(week);
+}
+
+// Label a column when it contains the first week of a new month, skipping labels that would collide.
+const monthLabels: { x: number; label: string }[] = [];
+let lastMonth = -1;
+weeks.forEach((week, i) => {
+  const first = week.find((d) => d !== null);
+  if (!first) return;
+  const month = parseDate(first.date).getUTCMonth();
+  if (month === lastMonth) return;
+  lastMonth = month;
+  const x = LEFT + i * CELL;
+  const prev = monthLabels.at(-1);
+  if (i > weeks.length - 3 || (prev && x - prev.x < CELL * 3)) return;
+  monthLabels.push({ x, label: monthName(parseDate(first.date)) });
+});
+
+const dayLabels = [
+  { row: 1, label: "Mon" },
+  { row: 3, label: "Wed" },
+  { row: 5, label: "Fri" },
+];
+
+const width = LEFT + weeks.length * CELL - GAP;
+const height = TOP + 7 * CELL - GAP;
+const total = data?.total.lastYear ?? 0;
+---
+
+<section id="github-activity" class="scroll-mt-20 px-8">
+  <div class="mx-auto max-w-[800px]">
+    <p class="section-label mb-5">GitHub Activity</p>
+
+    {
+      data ? (
+        <div class="rounded-[14px] border border-border bg-surface p-5 shadow-card sm:p-6">
+          <div id="contrib-scroll" class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <svg
+              viewBox={`0 0 ${width} ${height}`}
+              class="block w-full min-w-[640px]"
+              role="img"
+              aria-label={`${total} GitHub contributions in the last year`}
+            >
+              <g class="fill-dim text-[10px]">
+                {monthLabels.map(({ x, label }) => (
+                  <text x={x} y={10}>
+                    {label}
+                  </text>
+                ))}
+                {dayLabels.map(({ row, label }) => (
+                  <text x={0} y={TOP + row * CELL + BLOCK - 2}>
+                    {label}
+                  </text>
+                ))}
+              </g>
+              {weeks.map((week, col) =>
+                week.map(
+                  (day, row) =>
+                    day && (
+                      <rect
+                        x={LEFT + col * CELL}
+                        y={TOP + row * CELL}
+                        width={BLOCK}
+                        height={BLOCK}
+                        rx={2.5}
+                        fill={LEVEL_COLORS[day.level]}
+                      >
+                        <title>
+                          {`${day.count === 0 ? "No" : day.count} contribution${day.count === 1 ? "" : "s"} on ${fullDate(parseDate(day.date))}`}
+                        </title>
+                      </rect>
+                    ),
+                ),
+              )}
+            </svg>
+          </div>
+
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[13px] text-muted">
+            <a href={PROFILE_URL} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-fg">
+              <span class="font-semibold text-fg">{total.toLocaleString("en-US")}</span> contributions in the last year
+            </a>
+            <div class="flex items-center gap-1.5 text-dim" aria-hidden="true">
+              Less
+              {LEVEL_COLORS.map((color) => (
+                <span class="size-[11px] rounded-[2.5px]" style={`background:${color}`} />
+              ))}
+              More
+            </div>
+          </div>
+        </div>
+      ) : (
+        <a href={PROFILE_URL} target="_blank" rel="noopener noreferrer" class="card px-7 py-6 text-muted">
+          View my contributions on GitHub
+        </a>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  // On narrow screens the chart scrolls; start at the most recent weeks.
+  const scroller = document.getElementById("contrib-scroll");
+  if (scroller) scroller.scrollLeft = scroller.scrollWidth;
+</script>

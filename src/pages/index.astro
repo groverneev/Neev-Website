@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import profile from "../assets/profile.png";
 import BlogSection from "../components/BlogSection.astro";
 import ContactSection from "../components/ContactSection.astro";
+import GitHubActivity from "../components/GitHubActivity.astro";
 import ProjectsSection from "../components/ProjectsSection.astro";
 import { social } from "../data";
 import Base from "../layouts/Base.astro";
@@ -54,15 +55,7 @@ import Base from "../layouts/Base.astro";
     <BlogSection />
     <ProjectsSection />
 
-    <section id="github-activity" class="mx-auto w-full max-w-[860px] px-6">
-      <h2 class="mb-6 text-[28px] font-bold tracking-[-0.03em]">GitHub Activity</h2>
-      <img
-        src="https://ghchart.rshah.org/groverneev"
-        alt="Neev Grover's GitHub contribution chart"
-        loading="lazy"
-        class="w-full rounded-lg"
-      />
-    </section>
+    <GitHubActivity />
 
     <ContactSection />
   </div>
